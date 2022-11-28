@@ -1,0 +1,27 @@
+#{extends 'main.html' /}
+#{set title:'Cursos' /}
+
+<a href="@{Cursos.form}">Formulário</a>
+<a href="@{Cursos.listar}">Listagem</a>
+</br></br>
+
+
+<form action="@{Cursos.salvar}">
+
+	<input type="hidden" name="p.id" value="${eve?.id}">
+
+	<label class="form-label">Nome:</label>
+	<input type="text" name="p.nome" value="${eve?.nome}" class="form-control">
+	</br>
+
+	<label class="form-label">Descrição:</label>
+	<input type="text" name="p.descriçao" value="${eve?.descriçao}" class="form-control">
+	</br>
+	
+	<label class="form-label">Página Instagram:</label>
+	<input type="url" name="p.insta" value="${eve?.insta}" class="form-control">
+	</br>
+	
+	<input type="submit" class="btn btn-primary">
+
+</form>

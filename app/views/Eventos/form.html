@@ -1,0 +1,27 @@
+#{extends 'main.html' /}
+#{set title:'Eventos' /}
+
+<a href="@{Eventos.form}" class="link-primary">Formulário</a>
+<a href="@{Eventos.listar}" class="link-primary">Listagem</a>
+</br></br>
+
+
+<form action="@{Eventos.salvar}">
+
+	<input type="hidden" name="p.id" value="${eve?.id}" >
+
+	<label>Nome:</label>
+	<input type="text" name="p.nome" value="${eve?.nome}" class="form-control">
+	</br>
+
+	<label>Descrição:</label>
+	<input type="text" name="p.descriçao" value="${eve?.descriçao}" class="form-control">
+	</br>
+	
+	<label>Link:</label>
+	<input type="url" name="p.link" value="${eve?.link}" class="form-control">
+	</br>
+	
+	<input type="submit" class="btn btn-primary">
+
+</form>

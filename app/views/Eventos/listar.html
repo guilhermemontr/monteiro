@@ -1,0 +1,35 @@
+#{extends 'main.html' /}
+#{set title:'Listagem de Eventos' /}
+
+<a href="@{Eventos.form}">Formulário</a>
+<a href="@{Eventos.listar}">Listagem</a>
+</br></br>
+
+<form action="@{Eventos.listar}">
+	<div class="row">
+		<div class="col-12">
+			<label class="form-label">Termo de busca:</label>
+		</div>
+		<div class="col-10">
+			<input type="text" name="termo" class="form-control" />
+		</div>
+		<input type="submit" value="Pesquisar" class="btn btn-primary btn-sm col-2" />
+	</div>
+	#{if termo}
+		<small>Pesquisando por: ${termo}</small>
+	#{/if}
+	#{else}
+		<small>Pesquisando por: TODOS</small>
+	#{/else}
+</form>
+
+#{list items: lista, as:'i'}
+		
+		${i.nome} - ${i.descriçao} - <a href="${i.link}">Link</a>  /  
+		
+		<a href='@{Eventos.editar(i.id)}'>Editar</a>
+		<a href='@{Eventos.deletar(i.id)}'>Deletar</a>
+		
+		</br>
+
+#{/list}
